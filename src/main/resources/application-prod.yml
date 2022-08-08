@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: production
   datasource:
     # don't modify it if you don't know what you are doing
     url: ${JDBC_DATABASE_URL:}
