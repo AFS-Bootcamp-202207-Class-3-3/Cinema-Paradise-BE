@@ -6,6 +6,7 @@ import com.thoughtworks.training.repository.OrderRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class OrderService {
@@ -26,6 +27,11 @@ public class OrderService {
     }
 
     public Order insertNewOrder(Order order) {
+        order.setId(getNewId());
         return orderRepository.save(order);
+    }
+
+    public String getNewId(){
+        return UUID.randomUUID().toString();
     }
 }
