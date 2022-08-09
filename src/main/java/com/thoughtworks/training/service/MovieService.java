@@ -1,5 +1,6 @@
 package com.thoughtworks.training.service;
 
+import com.thoughtworks.training.exception.MovieNotFoundEException;
 import com.thoughtworks.training.model.entity.Movie;
 import com.thoughtworks.training.repository.MovieRepository;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,8 @@ public class MovieService {
     }
 
     public Movie getMovieById(String id) {
-        return movieRepository.findById(id);
+        return movieRepository.findById(id)
+                .orElseThrow(MovieNotFoundEException::new);
     }
 
     public String getNewId(){

@@ -1,10 +1,9 @@
 package com.thoughtworks.training.repository;
 
-
-import com.thoughtworks.training.model.entity.Movie;
+import com.thoughtworks.training.model.entity.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, String> {
+public interface OrderRepository extends JpaRepository<Order, String> {
 }
