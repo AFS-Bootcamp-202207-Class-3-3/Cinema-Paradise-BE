@@ -1,7 +1,7 @@
 package com.thoughtworks.training.service;
 
 import com.thoughtworks.training.model.entity.Cinema;
-import com.thoughtworks.training.repository.CinemaRespository;
+import com.thoughtworks.training.repository.CinemaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,13 +9,13 @@ import java.util.List;
 @Service
 public class CinemaService {
 
-    CinemaRespository cinemaRespository;
+    CinemaRepository cinemaRepository;
 
-    public CinemaService(CinemaRespository cinemaRespository) {
-        this.cinemaRespository = cinemaRespository;
+    public CinemaService(CinemaRepository cinemaRepository) {
+        this.cinemaRepository = cinemaRepository;
     }
 
     public List<Cinema> findAllCinema() {
-        return cinemaRespository.findAll();
+        return cinemaRepository.findAll();
     }
 }
