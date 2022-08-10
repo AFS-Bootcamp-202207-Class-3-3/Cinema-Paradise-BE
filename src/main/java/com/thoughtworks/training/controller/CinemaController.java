@@ -2,7 +2,6 @@ package com.thoughtworks.training.controller;
 
 import com.thoughtworks.training.mapper.CinemaMapper;
 import com.thoughtworks.training.model.dto.CinemaResponse;
-import com.thoughtworks.training.model.entity.Cinema;
 import com.thoughtworks.training.service.CinemaService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

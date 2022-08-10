@@ -18,8 +18,7 @@ public class MovieService {
     }
 
     public List<Movie> getAllMovies() {
-        List<Movie> all = movieRepository.findAll();
-        return all;
+        return movieRepository.findAll();
     }
 
     public Movie getMovieById(String id) {
@@ -29,5 +28,10 @@ public class MovieService {
 
     public String getNewId(){
         return UUID.randomUUID().toString();
+    }
+
+    public Movie insertNewMovie(Movie movie) {
+        movie.setId(getNewId());
+        return movieRepository.save(movie);
     }
 }

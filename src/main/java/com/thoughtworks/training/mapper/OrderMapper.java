@@ -23,7 +23,7 @@ public class OrderMapper {
     public OrderResponse transToResponse(Order order) {
         OrderResponse orderResponse = new OrderResponse();
         BeanUtils.copyProperties(order,orderResponse);
-        orderResponse.setMovieTitle(order.getMovie().getTitlechinese());
+        orderResponse.setMovieTitle(order.getMovie().getTitleChinese());
         orderResponse.setCinemaName(order.getCinema().getName());
         orderResponse.setDate(order.getDate().toString());
         orderResponse.setTime(order.getTime().toString());

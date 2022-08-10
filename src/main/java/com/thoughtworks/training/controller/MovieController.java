@@ -1,6 +1,7 @@
 package com.thoughtworks.training.controller;
 
 import com.thoughtworks.training.mapper.MovieMapper;
+import com.thoughtworks.training.model.dto.MovieRequest;
 import com.thoughtworks.training.model.dto.MovieResponse;
 import com.thoughtworks.training.model.entity.Movie;
 import com.thoughtworks.training.service.MovieService;
@@ -33,5 +34,11 @@ public class MovieController {
     @GetMapping(path = "/{id}")
     public MovieResponse getMovieById(@PathVariable String id){
         return movieMapper.transToMovieResponse(movieService.getMovieById(id));
+    }
+
+    @PostMapping
+    public MovieResponse insertNewMovie(@RequestBody MovieRequest movieRequest){
+        Movie movie = movieMapper.transToEntity(movieRequest);
+        return movieMapper.transToMovieResponse(movieService.insertNewMovie(movie));
     }
 }

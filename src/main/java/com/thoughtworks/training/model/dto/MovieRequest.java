@@ -1,37 +1,34 @@
 package com.thoughtworks.training.model.dto;
 
-import java.util.Date;
-
 public class MovieRequest {
 
     private String id;
-    private String titlechinese;
-    private String titleenglish;
-    private String imageurl;
+    private String titleChinese;
+    private String titleEnglish;
+    private String imageUrl;
     private String director;
     private String actors;
     private String types;
-    private Date releasedate;
+    private String releaseDate;
     private Integer duration;
     private String introduction;
-    private String rotationimageurl;
+    private String rotationImageUrl;
     private Double score;
 
     public MovieRequest() {
     }
 
-    public MovieRequest(String id, String titlechinese, String titleenglish, String imageurl, String director, String actors, String types, Date releasedate, Integer duration, String introduction, String rotationimageurl, Double score) {
-        this.id = id;
-        this.titlechinese = titlechinese;
-        this.titleenglish = titleenglish;
-        this.imageurl = imageurl;
+    public MovieRequest(String titleChinese, String titleEnglish, String imageUrl, String director, String actors, String types, String releaseDate, Integer duration, String introduction, String rotationImageUrl, Double score) {
+        this.titleChinese = titleChinese;
+        this.titleEnglish = titleEnglish;
+        this.imageUrl = imageUrl;
         this.director = director;
         this.actors = actors;
         this.types = types;
-        this.releasedate = releasedate;
+        this.releaseDate = releaseDate;
         this.duration = duration;
         this.introduction = introduction;
-        this.rotationimageurl = rotationimageurl;
+        this.rotationImageUrl = rotationImageUrl;
         this.score = score;
     }
 
@@ -43,28 +40,28 @@ public class MovieRequest {
         this.id = id;
     }
 
-    public String getTitlechinese() {
-        return titlechinese;
+    public String getTitleChinese() {
+        return titleChinese;
     }
 
-    public void setTitlechinese(String titlechinese) {
-        this.titlechinese = titlechinese;
+    public void setTitleChinese(String titleChinese) {
+        this.titleChinese = titleChinese;
     }
 
-    public String getTitleenglish() {
-        return titleenglish;
+    public String getTitleEnglish() {
+        return titleEnglish;
     }
 
-    public void setTitleenglish(String titleenglish) {
-        this.titleenglish = titleenglish;
+    public void setTitleEnglish(String titleEnglish) {
+        this.titleEnglish = titleEnglish;
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDirector() {
@@ -91,12 +88,12 @@ public class MovieRequest {
         this.types = types;
     }
 
-    public Date getReleasedate() {
-        return releasedate;
+    public String getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setReleasedate(Date releasedate) {
-        this.releasedate = releasedate;
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public Integer getDuration() {
@@ -115,12 +112,12 @@ public class MovieRequest {
         this.introduction = introduction;
     }
 
-    public String getRotationimageurl() {
-        return rotationimageurl;
+    public String getRotationImageUrl() {
+        return rotationImageUrl;
     }
 
-    public void setRotationimageurl(String rotationimageurl) {
-        this.rotationimageurl = rotationimageurl;
+    public void setRotationImageUrl(String rotationImageUrl) {
+        this.rotationImageUrl = rotationImageUrl;
     }
 
     public Double getScore() {

@@ -1,6 +1,7 @@
 package com.thoughtworks.training.model.entity;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
@@ -10,33 +11,37 @@ public class Movie {
 
     @Id
     private String id;
-    private String titlechinese;
-    private String titleenglish;
-    private String imageurl;
+    @Column(name = "titlechinese")
+    private String titleChinese;
+    @Column(name = "titleenglish")
+    private String titleEnglish;
+    @Column(name = "imageurl")
+    private String imageUrl;
     private String director;
     private String actors;
     private String types;
-    private Date releasedate;
+    @Column(name = "releasedate")
+    private Date releaseDate;
     private Integer duration;
     private String introduction;
-    private String rotationimageurl;
+    @Column(name = "rotationimageurl")
+    private String rotationImageUrl;
     private Double score;
 
     public Movie() {
     }
 
-    public Movie(String id, String titlechinese, String titleenglish, String imageurl, String director, String actors, String types, Date releasedate, Integer duration, String introduction, String rotationimageurl, Double score) {
-        this.id = id;
-        this.titlechinese = titlechinese;
-        this.titleenglish = titleenglish;
-        this.imageurl = imageurl;
+    public Movie(String titleChinese, String titleEnglish, String imageUrl, String director, String actors, String types, Date releaseDate, Integer duration, String introduction, String rotationImageUrl, Double score) {
+        this.titleChinese = titleChinese;
+        this.titleEnglish = titleEnglish;
+        this.imageUrl = imageUrl;
         this.director = director;
         this.actors = actors;
         this.types = types;
-        this.releasedate = releasedate;
+        this.releaseDate = releaseDate;
         this.duration = duration;
         this.introduction = introduction;
-        this.rotationimageurl = rotationimageurl;
+        this.rotationImageUrl = rotationImageUrl;
         this.score = score;
     }
 
@@ -48,28 +53,28 @@ public class Movie {
         this.id = id;
     }
 
-    public String getTitlechinese() {
-        return titlechinese;
+    public String getTitleChinese() {
+        return titleChinese;
     }
 
-    public void setTitlechinese(String titlechinese) {
-        this.titlechinese = titlechinese;
+    public void setTitleChinese(String titleChinese) {
+        this.titleChinese = titleChinese;
     }
 
-    public String getTitleenglish() {
-        return titleenglish;
+    public String getTitleEnglish() {
+        return titleEnglish;
     }
 
-    public void setTitleenglish(String titleenglish) {
-        this.titleenglish = titleenglish;
+    public void setTitleEnglish(String titleEnglish) {
+        this.titleEnglish = titleEnglish;
     }
 
-    public String getImageurl() {
-        return imageurl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageurl(String imageurl) {
-        this.imageurl = imageurl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDirector() {
@@ -96,12 +101,12 @@ public class Movie {
         this.types = types;
     }
 
-    public Date getReleasedate() {
-        return releasedate;
+    public Date getReleaseDate() {
+        return releaseDate;
     }
 
-    public void setReleasedate(Date releasedate) {
-        this.releasedate = releasedate;
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
     public Integer getDuration() {
@@ -120,12 +125,12 @@ public class Movie {
         this.introduction = introduction;
     }
 
-    public String getRotationimageurl() {
-        return rotationimageurl;
+    public String getRotationImageUrl() {
+        return rotationImageUrl;
     }
 
-    public void setRotationimageurl(String rotationimageurl) {
-        this.rotationimageurl = rotationimageurl;
+    public void setRotationImageUrl(String rotationImageUrl) {
+        this.rotationImageUrl = rotationImageUrl;
     }
 
     public Double getScore() {
