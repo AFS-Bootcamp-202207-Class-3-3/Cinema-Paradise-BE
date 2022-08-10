@@ -1,5 +1,6 @@
 package com.thoughtworks.training.service;
 
+import com.thoughtworks.training.exception.CinemaNotFoundException;
 import com.thoughtworks.training.model.entity.Cinema;
 import com.thoughtworks.training.repository.CinemaRepository;
 import org.springframework.stereotype.Service;
@@ -17,5 +18,10 @@ public class CinemaService {
 
     public List<Cinema> findAllCinema() {
         return cinemaRepository.findAll();
+    }
+
+    public Cinema findById(String id){
+        return cinemaRepository.findById(id)
+                .orElseThrow(CinemaNotFoundException::new);
     }
 }

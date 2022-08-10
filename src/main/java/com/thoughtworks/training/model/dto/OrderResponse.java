@@ -4,9 +4,9 @@ public class OrderResponse {
 
     private String id;
     private String user;
-    private String movie_title;
+    private String movieTitle;
     private double price;
-    private String cinema_name;
+    private String cinemaName;
     private String room;
     private String date;
     private String time;
@@ -16,12 +16,12 @@ public class OrderResponse {
     public OrderResponse() {
     }
 
-    public OrderResponse(String id, String user, String movie_title, double price, String cinema_name, String room, String date, String time, String seat, Boolean paid) {
+    public OrderResponse(String id, String user, String movieTitle, double price, String cinemaName, String room, String date, String time, String seat, Boolean paid) {
         this.id = id;
         this.user = user;
-        this.movie_title = movie_title;
+        this.movieTitle = movieTitle;
         this.price = price;
-        this.cinema_name = cinema_name;
+        this.cinemaName = cinemaName;
         this.room = room;
         this.date = date;
         this.time = time;
@@ -45,12 +45,12 @@ public class OrderResponse {
         this.user = user;
     }
 
-    public String getMovie_title() {
-        return movie_title;
+    public String getMovieTitle() {
+        return movieTitle;
     }
 
-    public void setMovie_title(String movie_title) {
-        this.movie_title = movie_title;
+    public void setMovieTitle(String movieTitle) {
+        this.movieTitle = movieTitle;
     }
 
     public double getPrice() {
@@ -61,12 +61,12 @@ public class OrderResponse {
         this.price = price;
     }
 
-    public String getCinema_name() {
-        return cinema_name;
+    public String getCinemaName() {
+        return cinemaName;
     }
 
-    public void setCinema_name(String cinema_name) {
-        this.cinema_name = cinema_name;
+    public void setCinemaName(String cinemaName) {
+        this.cinemaName = cinemaName;
     }
 
     public String getRoom() {

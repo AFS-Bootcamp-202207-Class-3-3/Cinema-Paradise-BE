@@ -10,7 +10,8 @@ import java.sql.Time;
 public class Order {
     @Id
     private String id;
-    private String user_id;
+    @Column(name = "user_id")
+    private String userId;
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
@@ -19,8 +20,10 @@ public class Order {
     @JoinColumn(name = "cinema_id")
     private Cinema cinema;
     private String room;
-    private Date order_date;
-    private Time order_time;
+    @Column(name = "order_date")
+    private Date orderDate;
+    @Column(name = "order_time")
+    private Time orderTime;
     private String seat;
     private Boolean paid;
 
@@ -28,13 +31,13 @@ public class Order {
     }
 
     public Order(String user, Movie movie, double price, Cinema cinema, String room, Date date, Time time, String seat, Boolean paid) {
-        this.user_id = user;
+        this.userId = user;
         this.movie = movie;
         this.price = price;
         this.cinema = cinema;
         this.room = room;
-        this.order_date = date;
-        this.order_time = time;
+        this.orderDate = date;
+        this.orderTime = time;
         this.seat = seat;
         this.paid = paid;
     }
@@ -48,11 +51,11 @@ public class Order {
     }
 
     public String getUser() {
-        return user_id;
+        return userId;
     }
 
     public void setUser(String user) {
-        this.user_id = user;
+        this.userId = user;
     }
 
     public Movie getMovie() {
@@ -88,19 +91,19 @@ public class Order {
     }
 
     public Date getDate() {
-        return order_date;
+        return orderDate;
     }
 
     public void setDate(Date date) {
-        this.order_date = date;
+        this.orderDate = date;
     }
 
     public Time getTime() {
-        return order_time;
+        return orderTime;
     }
 
     public void setTime(Time time) {
-        this.order_time = time;
+        this.orderTime = time;
     }
 
     public String getSeat() {
