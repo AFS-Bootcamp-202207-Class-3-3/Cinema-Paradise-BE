@@ -7,7 +7,6 @@ import com.thoughtworks.training.model.entity.Movie;
 import com.thoughtworks.training.service.MovieService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

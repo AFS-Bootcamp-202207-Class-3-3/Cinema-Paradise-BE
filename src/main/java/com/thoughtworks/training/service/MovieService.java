@@ -42,6 +42,6 @@ public class MovieService {
     }
 
     public Movie getMovieByChineseName(String chineseName) {
-        return movieRepository.findByTitleChinese(chineseName);
+        return movieRepository.findByTitleChineseLike("%"+chineseName+"%");
     }
 }
