@@ -34,4 +34,10 @@ public class MovieService {
         movie.setId(getNewId());
         return movieRepository.save(movie);
     }
+
+    public void deleteById(String id) {
+        if (movieRepository.existsById(id)){
+            movieRepository.deleteById(id);
+        }
+    }
 }

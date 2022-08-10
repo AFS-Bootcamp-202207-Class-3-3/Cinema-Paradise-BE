@@ -44,4 +44,10 @@ public class OrderController {
         return orderMapper.transToResponse(orderService.insertNewOrder(order));
     }
 
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable String id){
+        orderService.deleteById(id);
+    }
+
 }

@@ -5,6 +5,7 @@ import com.thoughtworks.training.model.dto.MovieRequest;
 import com.thoughtworks.training.model.dto.MovieResponse;
 import com.thoughtworks.training.model.entity.Movie;
 import com.thoughtworks.training.service.MovieService;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,8 +38,14 @@ public class MovieController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public MovieResponse insertNewMovie(@RequestBody MovieRequest movieRequest){
         Movie movie = movieMapper.transToEntity(movieRequest);
         return movieMapper.transToMovieResponse(movieService.insertNewMovie(movie));
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable String id){
+        movieService.deleteById(id);
     }
 }

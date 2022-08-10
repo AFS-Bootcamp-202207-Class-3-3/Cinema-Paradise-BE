@@ -6,6 +6,7 @@ import com.thoughtworks.training.repository.CinemaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CinemaService {
@@ -23,5 +24,21 @@ public class CinemaService {
     public Cinema findById(String id){
         return cinemaRepository.findById(id)
                 .orElseThrow(CinemaNotFoundException::new);
+    }
+
+    public Cinema createNewCinema(Cinema cinema) {
+        cinema.setId(getNewId());
+        return cinemaRepository.save(cinema);
+    }
+
+    private String getNewId(){
+        return UUID.randomUUID().toString();
+    }
+
+
+    public void deleteById(String id){
+        if (cinemaRepository.existsById(id)){
+            cinemaRepository.deleteById(id);
+        }
     }
 }

@@ -1,12 +1,12 @@
 package com.thoughtworks.training.controller;
 
 import com.thoughtworks.training.mapper.CinemaMapper;
+import com.thoughtworks.training.model.dto.CinemaRequest;
 import com.thoughtworks.training.model.dto.CinemaResponse;
+import com.thoughtworks.training.model.entity.Cinema;
 import com.thoughtworks.training.service.CinemaService;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,4 +30,18 @@ public class CinemaController {
                 .map(cinemaMapper::transToResponse)
                 .collect(Collectors.toList());
     }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public CinemaResponse createNewCinema(@RequestBody CinemaRequest cinemaRequest){
+        Cinema cinema = cinemaMapper.transToEntity(cinemaRequest);
+        return cinemaMapper.transToResponse(cinemaService.createNewCinema(cinema));
+    }
+
+    @DeleteMapping(path = "/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable String id){
+        cinemaService.deleteById(id);
+    }
+
 }

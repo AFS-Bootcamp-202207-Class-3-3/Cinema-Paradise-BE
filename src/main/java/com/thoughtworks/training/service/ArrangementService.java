@@ -3,11 +3,9 @@ package com.thoughtworks.training.service;
 import com.thoughtworks.training.model.entity.Arrangement;
 import com.thoughtworks.training.repository.ArrangementRepository;
 import org.springframework.stereotype.Service;
-
-import java.sql.Date;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,5 +27,18 @@ public class ArrangementService {
     }
 
 
+    public Arrangement createNewArrangement(Arrangement arrangement) {
+        arrangement.setId(getNewId());
+        return arrangementRepository.save(arrangement);
+    }
 
+    public String getNewId() {
+        return UUID.randomUUID().toString();
+    }
+
+    public void deleteById(String id) {
+        if (arrangementRepository.existsById(id)) {
+            arrangementRepository.deleteById(id);
+        }
+    }
 }

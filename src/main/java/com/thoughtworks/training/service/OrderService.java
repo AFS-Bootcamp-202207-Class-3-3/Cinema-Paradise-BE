@@ -34,4 +34,10 @@ public class OrderService {
     public String getNewId(){
         return UUID.randomUUID().toString();
     }
+
+    public void deleteById(String id) {
+        if(orderRepository.existsById(id)){
+            orderRepository.deleteById(id);
+        }
+    }
 }
