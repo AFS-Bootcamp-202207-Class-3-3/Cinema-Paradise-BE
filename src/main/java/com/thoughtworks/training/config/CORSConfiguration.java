@@ -15,7 +15,7 @@ public class CORSConfiguration {
             public void addCorsMappings(CorsRegistry registry){
                 registry.addMapping("/**")
                         .allowedMethods("GET","POST","PUT","DELETE")
-                        .allowedOrigins();
+                        .allowedOrigins("https://cinema-paradise-fe-afs.herokuapp.com/");
             }
         };
     }
