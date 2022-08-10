@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.text.SimpleDateFormat;
 
 @Component
 public class ArrangementMapper {
@@ -27,7 +28,9 @@ public class ArrangementMapper {
         BeanUtils.copyProperties(arrangement,arrangementResponse);
         arrangementResponse.setCinemaId(arrangement.getCinemaArrange().getId());
         arrangementResponse.setMovieId(arrangement.getMovieArrange().getId());
-        arrangementResponse.setArrangeDate(arrangement.getArrangeDate().toString());
+
+        arrangementResponse.setArrangeDate(dateToString(arrangement.getArrangeDate()));
+
         arrangementResponse.setTime(arrangement.getTime().toString());
         return arrangementResponse;
     }
@@ -42,5 +45,10 @@ public class ArrangementMapper {
         arrangement.setTime(Time.valueOf(arrangementRequest.getTime()));
 
         return arrangement;
+    }
+
+    public String dateToString(Date date){
+        SimpleDateFormat sdf = new SimpleDateFormat ("MM月dd日");
+        return sdf.format(date);
     }
 }

@@ -26,8 +26,8 @@ public class ArrangementController {
     }
 
     @GetMapping
-    public List<ArrangementResponse> findAll(){
-        return arrangementService.findAll().stream()
+    public List<ArrangementResponse> findByMovieAndCinemaId(@RequestParam("movieId") String movieId, @RequestParam("cinemaId") String cinemaId){
+        return arrangementService.findByMovieAndCinemaId(movieId, cinemaId).stream()
                 .map(arrangementMapper::transToResponse)
                 .collect(Collectors.toList());
     }

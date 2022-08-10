@@ -40,4 +40,8 @@ public class MovieService {
             movieRepository.deleteById(id);
         }
     }
+
+    public Movie getMovieByChineseName(String chineseName) {
+        return movieRepository.findByTitleChinese(chineseName);
+    }
 }

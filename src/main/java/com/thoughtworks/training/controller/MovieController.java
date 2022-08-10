@@ -37,6 +37,11 @@ public class MovieController {
         return movieMapper.transToMovieResponse(movieService.getMovieById(id));
     }
 
+    @GetMapping(path = "movie/{chineseName}")
+    public MovieResponse getMovieByChineseName(@PathVariable String chineseName){
+        return movieMapper.transToMovieResponse(movieService.getMovieByChineseName(chineseName));
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MovieResponse insertNewMovie(@RequestBody MovieRequest movieRequest){

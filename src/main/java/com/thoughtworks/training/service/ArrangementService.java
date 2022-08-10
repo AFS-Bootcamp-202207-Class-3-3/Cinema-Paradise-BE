@@ -1,9 +1,11 @@
 package com.thoughtworks.training.service;
 
+import com.thoughtworks.training.model.dto.ArrangementRequest;
 import com.thoughtworks.training.model.entity.Arrangement;
 import com.thoughtworks.training.repository.ArrangementRepository;
 import org.springframework.stereotype.Service;
 import java.time.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -17,13 +19,24 @@ public class ArrangementService {
         this.arrangementRepository = arrangementRepository;
     }
 
-    public List<Arrangement> findAll() {
-
-        return arrangementRepository.findAll().stream()
+    public List<Arrangement> findByMovieAndCinemaId(String movieId, String cinemaId) {
+        List<Arrangement> returnArrangements = new ArrayList<>();
+        List<Arrangement> arrangements = arrangementRepository.findByMovieAndCinemaId(movieId, cinemaId).stream()
                 .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isAfter(LocalDate.now().plusDays(-1)))
                 .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isBefore(LocalDate.now().plusDays(5)))
-                .filter(arrangement -> arrangement.getTime().toLocalTime().isAfter(LocalTime.now()))
                 .collect(Collectors.toList());
+
+        for (Arrangement arrangement : arrangements) {
+            if (arrangement.getArrangeDate().toLocalDate().equals(LocalDate.now())){
+                if (arrangement.getTime().toLocalTime().isAfter(LocalTime.now())){
+                    returnArrangements.add(arrangement);
+                }
+            }else {
+                returnArrangements.add(arrangement);
+            }
+        }
+        return returnArrangements;
+
     }
 
 
