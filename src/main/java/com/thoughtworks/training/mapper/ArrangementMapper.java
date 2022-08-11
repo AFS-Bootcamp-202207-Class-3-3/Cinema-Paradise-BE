@@ -48,7 +48,7 @@ public class ArrangementMapper {
     }
 
     public String dateToString(Date date){
-        SimpleDateFormat sdf = new SimpleDateFormat ("MM月dd日");
+        SimpleDateFormat sdf = new SimpleDateFormat ("M月dd日");
         return sdf.format(date);
     }
 }
