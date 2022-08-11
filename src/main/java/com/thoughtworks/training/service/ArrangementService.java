@@ -5,6 +5,7 @@ import com.thoughtworks.training.repository.ArrangementRepository;
 import org.springframework.stereotype.Service;
 import java.time.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -24,6 +25,7 @@ public class ArrangementService {
         return arrangementRepository.findByMovieAndCinemaId(movieId, cinemaId).stream()
                 .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isAfter(LocalDate.now().plusDays(-1)) && arrangement.getTime().toLocalTime().isAfter(LocalTime.now()))
                 .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isBefore(LocalDate.now().plusDays(5)))
+                .sorted(Comparator.comparing(Arrangement::getTime))
                 .collect(Collectors.toList());
 
 //        for (Arrangement arrangement : arrangements) {
