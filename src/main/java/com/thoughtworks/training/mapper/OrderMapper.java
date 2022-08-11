@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 
 @Component
 public class OrderMapper {
@@ -22,7 +23,7 @@ public class OrderMapper {
 
     public OrderResponse transToResponse(Order order) {
         OrderResponse orderResponse = new OrderResponse();
-        BeanUtils.copyProperties(order,orderResponse);
+        BeanUtils.copyProperties(order, orderResponse);
         orderResponse.setMovieTitle(order.getMovie().getTitleChinese());
         orderResponse.setCinemaName(order.getCinema().getName());
         orderResponse.setDate(order.getDate().toString());
@@ -32,11 +33,18 @@ public class OrderMapper {
 
     public Order transToEntity(OrderRequest orderRequest) {
         Order order = new Order();
-        BeanUtils.copyProperties(orderRequest,order);
+        BeanUtils.copyProperties(orderRequest, order);
         order.setMovie(movieService.getMovieById(orderRequest.getMovieId()));
         order.setCinema(cinemaService.findById(orderRequest.getCinemaId()));
-        order.setDate(Date.valueOf(orderRequest.getDate()));
+        String dateString = transToDateString(orderRequest.getDate());
+        order.setDate(Date.valueOf(dateString));
         order.setTime(Time.valueOf(orderRequest.getTime()));
         return order;
+    }
+
+    public String transToDateString(String date) {
+        return LocalDate.now().getYear() + "-"
+                + date.substring(0, date.indexOf('月')) + "-"
+                + date.substring(date.indexOf('月')+1, date.indexOf('日'));
     }
 }
