@@ -38,6 +38,11 @@ public class ArrangementService {
 //        return returnArrangements;
     }
 
+    public Arrangement findById(String id){
+        return arrangementRepository.findById(id)
+                .orElseThrow(ArrayIndexOutOfBoundsException::new);
+    }
+
 
     public Arrangement createNewArrangement(Arrangement arrangement) {
         arrangement.setId(getNewId());

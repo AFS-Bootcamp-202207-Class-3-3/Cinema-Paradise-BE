@@ -20,6 +20,9 @@ public class Order {
     @JoinColumn(name = "cinema_id")
     private Cinema cinema;
     private String room;
+    @ManyToOne
+    @JoinColumn(name = "arrangement_id")
+    private Arrangement arrangement;
     @Column(name = "order_date")
     private Date orderDate;
     @Column(name = "order_time")
@@ -30,16 +33,49 @@ public class Order {
     public Order() {
     }
 
-    public Order(String user, Movie movie, double price, Cinema cinema, String room, Date date, Time time, String seat, Boolean paid) {
-        this.userId = user;
+    public Order(String userId, Movie movie, double price, Cinema cinema, String room, Arrangement arrangement, Date orderDate, Time orderTime, String seat, Boolean paid) {
+        this.userId = userId;
         this.movie = movie;
         this.price = price;
         this.cinema = cinema;
         this.room = room;
-        this.orderDate = date;
-        this.orderTime = time;
+        this.arrangement = arrangement;
+        this.orderDate = orderDate;
+        this.orderTime = orderTime;
         this.seat = seat;
         this.paid = paid;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public Arrangement getArrangement() {
+        return arrangement;
+    }
+
+    public void setArrangement(Arrangement arrangement) {
+        this.arrangement = arrangement;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public Time getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(Time orderTime) {
+        this.orderTime = orderTime;
     }
 
     public String getId() {

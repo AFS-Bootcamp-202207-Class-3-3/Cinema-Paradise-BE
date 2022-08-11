@@ -6,6 +6,7 @@ public class OrderRequest {
     private String movieId;
     private double price;
     private String cinemaId;
+    private String arrangementId;
     private String room;
     private String date;
     private String time;
@@ -15,11 +16,12 @@ public class OrderRequest {
     public OrderRequest() {
     }
 
-    public OrderRequest(String user, String movieId, double price, String cinemaId, String room, String date, String time, String seat, Boolean paid) {
+    public OrderRequest(String user, String movieId, double price, String cinemaId, String arrangementId, String room, String date, String time, String seat, Boolean paid) {
         this.user = user;
         this.movieId = movieId;
         this.price = price;
         this.cinemaId = cinemaId;
+        this.arrangementId = arrangementId;
         this.room = room;
         this.date = date;
         this.time = time;
@@ -27,6 +29,13 @@ public class OrderRequest {
         this.paid = paid;
     }
 
+    public String getArrangementId() {
+        return arrangementId;
+    }
+
+    public void setArrangementId(String arrangementId) {
+        this.arrangementId = arrangementId;
+    }
 
     public String getUser() {
         return user;

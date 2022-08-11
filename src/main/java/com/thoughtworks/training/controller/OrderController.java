@@ -5,7 +5,6 @@ import com.thoughtworks.training.model.dto.OrderRequest;
 import com.thoughtworks.training.model.dto.OrderResponse;
 import com.thoughtworks.training.model.entity.Order;
 import com.thoughtworks.training.service.OrderService;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +35,12 @@ public class OrderController {
     public OrderResponse findOrderById(@PathVariable String id){
         return orderMapper.transToResponse(orderService.findById(id));
     }
+
+    @GetMapping("/arrangement")
+    public List<String> findOrdersByArrangementId(@RequestParam String id){
+        return orderMapper.transToChooseResponse(orderService.findOrdersByArrangementId(id));
+    }
+
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

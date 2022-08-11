@@ -3,6 +3,7 @@ package com.thoughtworks.training.service;
 import com.thoughtworks.training.exception.OrderNotFoundException;
 import com.thoughtworks.training.model.entity.Order;
 import com.thoughtworks.training.repository.OrderRepository;
+import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,5 +40,9 @@ public class OrderService {
         if(orderRepository.existsById(id)){
             orderRepository.deleteById(id);
         }
+    }
+
+    public List<Order> findOrdersByArrangementId(String id) {
+        return orderRepository.findMovieOrdersByArrangementId(id);
     }
 }
