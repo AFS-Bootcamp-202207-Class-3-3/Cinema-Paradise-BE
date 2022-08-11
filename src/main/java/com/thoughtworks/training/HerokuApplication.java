@@ -21,11 +21,15 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.TimeZone;
+
 
 @Controller
 @SpringBootApplication
 public class HerokuApplication {
   public static void main(String[] args) throws Exception {
+    TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
+    TimeZone.setDefault(timeZone);
     SpringApplication.run(HerokuApplication.class, args);
   }
 }
