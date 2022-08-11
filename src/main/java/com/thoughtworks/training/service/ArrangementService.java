@@ -22,22 +22,23 @@ public class ArrangementService {
     public List<Arrangement> findByMovieAndCinemaId(String movieId, String cinemaId) {
         List<Arrangement> returnArrangements = new ArrayList<>();
 
-        return arrangementRepository.findByMovieAndCinemaId(movieId, cinemaId).stream()
-                .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isAfter(LocalDate.now().plusDays(-1)) && arrangement.getTime().toLocalTime().isAfter(LocalTime.now()))
+        List<Arrangement> arrangements = arrangementRepository.findByMovieAndCinemaId(movieId, cinemaId).stream()
+                .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isAfter(LocalDate.now().plusDays(-1)))
                 .filter(arrangement -> arrangement.getArrangeDate().toLocalDate().isBefore(LocalDate.now().plusDays(5)))
                 .sorted(Comparator.comparing(Arrangement::getTime))
                 .collect(Collectors.toList());
 
-//        for (Arrangement arrangement : arrangements) {
-//            if (arrangement.getArrangeDate().toLocalDate().equals(LocalDate.now())){
-//                if (arrangement.getTime().toLocalTime().isAfter(LocalTime.now())){
-//                    returnArrangements.add(arrangement);
-//                }
-//            }else {
-//                returnArrangements.add(arrangement);
-//            }
-//        }
-//        return returnArrangements;
+        for (Arrangement arrangement : arrangements) {
+            if (arrangement.getArrangeDate().toLocalDate().equals(LocalDate.now())){
+                if (arrangement.getTime().toLocalTime().isAfter(LocalTime.now())){
+                    returnArrangements.add(arrangement);
+                }
+            }else {
+                returnArrangements.add(arrangement);
+            }
+        }
+
+        return returnArrangements;
     }
 
     public Arrangement findById(String id){
