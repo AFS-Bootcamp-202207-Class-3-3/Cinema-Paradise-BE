@@ -1,10 +1,9 @@
 package com.thoughtworks.training.mapper;
 
 
-import com.thoughtworks.training.model.dto.ArrangementRequest;
-import com.thoughtworks.training.model.dto.ArrangementResponse;
+import com.thoughtworks.training.model.dto.request.ArrangementRequest;
+import com.thoughtworks.training.model.dto.response.ArrangementResponse;
 import com.thoughtworks.training.model.entity.Arrangement;
-import com.thoughtworks.training.service.ArrangementService;
 import com.thoughtworks.training.service.CinemaService;
 import com.thoughtworks.training.service.MovieService;
 import org.springframework.beans.BeanUtils;

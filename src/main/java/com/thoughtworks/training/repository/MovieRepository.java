@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface MovieRepository extends JpaRepository<Movie, String> {
-    Movie findByTitleChineseLike(String chineseName);
+    Movie findByTitleChinese(String chineseName);
 }

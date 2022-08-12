@@ -2,8 +2,8 @@ package com.thoughtworks.training.controller;
 
 
 import com.thoughtworks.training.mapper.ArrangementMapper;
-import com.thoughtworks.training.model.dto.ArrangementRequest;
-import com.thoughtworks.training.model.dto.ArrangementResponse;
+import com.thoughtworks.training.model.dto.request.ArrangementRequest;
+import com.thoughtworks.training.model.dto.response.ArrangementResponse;
 import com.thoughtworks.training.model.entity.Arrangement;
 import com.thoughtworks.training.service.ArrangementService;
 import org.springframework.http.HttpStatus;

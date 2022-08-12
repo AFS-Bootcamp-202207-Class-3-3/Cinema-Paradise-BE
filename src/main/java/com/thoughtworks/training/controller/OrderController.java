@@ -1,8 +1,8 @@
 package com.thoughtworks.training.controller;
 
 import com.thoughtworks.training.mapper.OrderMapper;
-import com.thoughtworks.training.model.dto.OrderRequest;
-import com.thoughtworks.training.model.dto.OrderResponse;
+import com.thoughtworks.training.model.dto.request.OrderRequest;
+import com.thoughtworks.training.model.dto.response.OrderResponse;
 import com.thoughtworks.training.model.entity.Order;
 import com.thoughtworks.training.service.OrderService;
 import org.springframework.http.HttpStatus;

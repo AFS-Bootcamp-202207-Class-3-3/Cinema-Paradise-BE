@@ -1,7 +1,7 @@
 package com.thoughtworks.training.mapper;
 
-import com.thoughtworks.training.model.dto.OrderRequest;
-import com.thoughtworks.training.model.dto.OrderResponse;
+import com.thoughtworks.training.model.dto.request.OrderRequest;
+import com.thoughtworks.training.model.dto.response.OrderResponse;
 import com.thoughtworks.training.model.entity.Order;
 import com.thoughtworks.training.service.ArrangementService;
 import com.thoughtworks.training.service.CinemaService;

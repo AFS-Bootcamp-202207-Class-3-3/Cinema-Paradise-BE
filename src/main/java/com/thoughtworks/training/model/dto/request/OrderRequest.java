@@ -1,27 +1,27 @@
-package com.thoughtworks.training.model.dto;
+package com.thoughtworks.training.model.dto.request;
 
-public class OrderResponse {
+public class OrderRequest {
 
-    private String id;
     private String user;
-    private String movieTitle;
+    private String movieId;
     private double price;
-    private String cinemaName;
+    private String cinemaId;
+    private String arrangementId;
     private String room;
     private String date;
     private String time;
     private String seat;
     private Boolean paid;
 
-    public OrderResponse() {
+    public OrderRequest() {
     }
 
-    public OrderResponse(String id, String user, String movieTitle, double price, String cinemaName, String room, String date, String time, String seat, Boolean paid) {
-        this.id = id;
+    public OrderRequest(String user, String movieId, double price, String cinemaId, String arrangementId, String room, String date, String time, String seat, Boolean paid) {
         this.user = user;
-        this.movieTitle = movieTitle;
+        this.movieId = movieId;
         this.price = price;
-        this.cinemaName = cinemaName;
+        this.cinemaId = cinemaId;
+        this.arrangementId = arrangementId;
         this.room = room;
         this.date = date;
         this.time = time;
@@ -29,12 +29,12 @@ public class OrderResponse {
         this.paid = paid;
     }
 
-    public String getId() {
-        return id;
+    public String getArrangementId() {
+        return arrangementId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setArrangementId(String arrangementId) {
+        this.arrangementId = arrangementId;
     }
 
     public String getUser() {
@@ -45,12 +45,12 @@ public class OrderResponse {
         this.user = user;
     }
 
-    public String getMovieTitle() {
-        return movieTitle;
+    public String getMovieId() {
+        return movieId;
     }
 
-    public void setMovieTitle(String movieTitle) {
-        this.movieTitle = movieTitle;
+    public void setMovieId(String movieId) {
+        this.movieId = movieId;
     }
 
     public double getPrice() {
@@ -61,12 +61,12 @@ public class OrderResponse {
         this.price = price;
     }
 
-    public String getCinemaName() {
-        return cinemaName;
+    public String getCinemaId() {
+        return cinemaId;
     }
 
-    public void setCinemaName(String cinemaName) {
-        this.cinemaName = cinemaName;
+    public void setCinemaId(String cinemaId) {
+        this.cinemaId = cinemaId;
     }
 
     public String getRoom() {

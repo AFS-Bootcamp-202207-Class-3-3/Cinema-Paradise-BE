@@ -1,6 +1,6 @@
-package com.thoughtworks.training.model.dto;
+package com.thoughtworks.training.model.dto.response;
 
-public class MovieRequest {
+public class MovieResponse {
 
     private String id;
     private String titleChinese;
@@ -15,10 +15,11 @@ public class MovieRequest {
     private String rotationImageUrl;
     private Double score;
 
-    public MovieRequest() {
+    public MovieResponse() {
     }
 
-    public MovieRequest(String titleChinese, String titleEnglish, String imageUrl, String director, String actors, String types, String releaseDate, Integer duration, String introduction, String rotationImageUrl, Double score) {
+    public MovieResponse(String id, String titleChinese, String titleEnglish, String imageUrl, String director, String actors, String types, String releaseDate, Integer duration, String introduction, String rotationImageUrl, Double score) {
+        this.id = id;
         this.titleChinese = titleChinese;
         this.titleEnglish = titleEnglish;
         this.imageUrl = imageUrl;

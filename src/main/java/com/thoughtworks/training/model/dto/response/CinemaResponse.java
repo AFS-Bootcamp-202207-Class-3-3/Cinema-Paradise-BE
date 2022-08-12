@@ -1,15 +1,26 @@
-package com.thoughtworks.training.model.dto;
+package com.thoughtworks.training.model.dto.response;
 
-public class CinemaRequest {
+public class CinemaResponse {
+
+    private String id;
     private String name;
     private String location;
 
-    public CinemaRequest() {
+    public CinemaResponse() {
     }
 
-    public CinemaRequest(String name, String location) {
+    public CinemaResponse(String id, String name, String location) {
+        this.id = id;
         this.name = name;
         this.location = location;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {

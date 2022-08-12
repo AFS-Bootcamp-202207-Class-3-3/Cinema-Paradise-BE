@@ -42,6 +42,10 @@ public class MovieService {
     }
 
     public Movie getMovieByChineseName(String chineseName) {
-        return movieRepository.findByTitleChineseLike("%" + chineseName + "%");
+        try{
+            return movieRepository.findByTitleChinese(chineseName);
+        }catch (Exception e){
+            throw new MovieNotFoundEException();
+        }
     }
 }

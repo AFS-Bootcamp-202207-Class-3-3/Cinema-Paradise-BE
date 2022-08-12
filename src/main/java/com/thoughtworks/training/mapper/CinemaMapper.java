@@ -1,7 +1,7 @@
 package com.thoughtworks.training.mapper;
 
-import com.thoughtworks.training.model.dto.CinemaRequest;
-import com.thoughtworks.training.model.dto.CinemaResponse;
+import com.thoughtworks.training.model.dto.request.CinemaRequest;
+import com.thoughtworks.training.model.dto.response.CinemaResponse;
 import com.thoughtworks.training.model.entity.Cinema;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;

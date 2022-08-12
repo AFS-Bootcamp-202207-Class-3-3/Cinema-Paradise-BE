@@ -1,8 +1,6 @@
-package com.thoughtworks.training.model.dto;
+package com.thoughtworks.training.model.dto.request;
 
-public class ArrangementResponse {
-
-    private String id;
+public class ArrangementRequest {
     private String room;
     private String arrangeDate;
     private String time;
@@ -10,25 +8,16 @@ public class ArrangementResponse {
     private String cinemaId;
     private double price;
 
-    public ArrangementResponse() {
+    public ArrangementRequest() {
     }
 
-    public ArrangementResponse(String id, String room, String arrangeDate, String time, String movieId, String cinemaId, double price) {
-        this.id = id;
+    public ArrangementRequest(String room, String arrangeDate, String time, String movieId, String cinemaId, double price) {
         this.room = room;
         this.arrangeDate = arrangeDate;
         this.time = time;
         this.movieId = movieId;
         this.cinemaId = cinemaId;
         this.price = price;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getRoom() {

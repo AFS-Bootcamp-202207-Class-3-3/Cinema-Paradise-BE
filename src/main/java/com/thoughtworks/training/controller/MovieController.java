@@ -1,8 +1,8 @@
 package com.thoughtworks.training.controller;
 
 import com.thoughtworks.training.mapper.MovieMapper;
-import com.thoughtworks.training.model.dto.MovieRequest;
-import com.thoughtworks.training.model.dto.MovieResponse;
+import com.thoughtworks.training.model.dto.request.MovieRequest;
+import com.thoughtworks.training.model.dto.response.MovieResponse;
 import com.thoughtworks.training.model.entity.Movie;
 import com.thoughtworks.training.service.MovieService;
 import org.springframework.http.HttpStatus;
